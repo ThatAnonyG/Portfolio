@@ -1,0 +1,17 @@
+# Editor
+.vscode/
+.idea/
+
+# Source
+src/
+public/
+
+# NPM
+node_modules/
+package-lock.json
+package.json
+
+# Configs
+babel.config.js
+vue.config.js
+README.md
