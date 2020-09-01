@@ -2,16 +2,9 @@
 .vscode/
 .idea/
 
-# Source
-src/
-public/
+# Generated
+dist/
 
 # NPM
 node_modules/
 package-lock.json
-package.json
-
-# Configs
-babel.config.js
-vue.config.js
-README.md
