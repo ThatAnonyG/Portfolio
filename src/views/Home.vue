@@ -184,13 +184,15 @@
         </v-btn>
         <v-btn
           class="text-capitalize"
+          href="https://dsc.bio/ThatAnonyG"
+          target="_blank"
           text
           style="margin: 6px; font-size: 1rem;"
         >
           <v-icon style="margin-right: 4px; color: #48b8d0;"
             >mdi-discord</v-icon
           >
-          Anonymous Guy#2003
+          Anonymous Guy#8444
         </v-btn>
       </div>
     </v-container>
@@ -221,7 +223,7 @@ export default {
         src: "https://i.imgur.com/Lomokqy.png",
         link: "https://lavajs.tech",
         desc:
-          "LavaJS is a open-source LavaLink wrapper based on efficiency and easy of use. This is the documentation for LavaJS.",
+          "LavaJS is a open-source LavaLink wrapper focused on efficiency and easy of use. This is the documentation for LavaJS.",
       },
     ],
     skills: [
@@ -232,6 +234,10 @@ export default {
       {
         name: "TypeScript",
         icon: "mdi-language-typescript",
+      },
+      {
+        name: "Java",
+        icon: "mdi-language-java",
       },
       {
         name: "NodeJS",
