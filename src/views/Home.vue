@@ -174,17 +174,23 @@ export default {
     projects: [
       {
         name: "Xenus",
-        img: "https://i.imgur.com/9JAHMFR.png",
+        img: "https://i.imgur.com/BERM2yU.png",
         link: "https://github.com/ThatAnonymousG/Xenus",
         desc:
-          "Xenus is a multi purpose discord bot which aims to the most configurable one out there. This is the dashboard and homepage of Xenus.",
+          "Xenus is a chatbot developed for the Discord platform using their API. Discord is a chat service similar to Slack. It was first developed in Javascript and Typescript but the last revision uses Java.",
       },
       {
         name: "Vortek Academy",
-        img: "https://imgur.com/scGbkhT.png",
+        img: "https://i.imgur.com/ePogrOk.png",
         link: "https://vortekacademy.com",
         desc:
           "VorteK Academy is a gaming community for like minded gamers. This website is the official homepage of VA where one can find all their info.",
+      },
+      {
+        name: "ActuallyMC",
+        img: "https://i.imgur.com/bELvjNZ.png",
+        link: "https://actuallymc.live",
+        desc: "",
       },
       {
         name: "LavaJS",
