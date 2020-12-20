@@ -8,7 +8,7 @@
         Full Stack Web Developer
       </h1>
       <h2 style="letter-spacing: 0.167em; font-weight: 300">
-        2+ YEARS EXPERIENCE IN DESIGNING SLEEK APPS
+        2+ YEARS EXPERIENCE IN WEB DEVELOPMENT
       </h2>
       <h3
         style="
@@ -48,51 +48,21 @@
       >
         My Gallery
       </h1>
-      <v-layout wrap>
-        <v-flex>
-          <v-list-item v-for="(pic, i) in pics" :key="i" two-line>
-            <v-list-item-avatar tile size="55%">
-              <v-img
-                :src="pic.src"
-                style="margin: 1rem 0; border-radius: 25px"
-              />
-            </v-list-item-avatar>
-            <v-list-item-content class="text-left">
-              <v-list-item-title
-                style="
-                  color: #005588;
-                  font-size: 2.2rem;
-                  font-weight: 400;
-                  letter-spacing: 0.15em;
-                "
-              >
-                {{ i + 1 }}. {{ pic.name.toUpperCase() }}
-              </v-list-item-title>
-              <v-divider style="background-color: #005588; margin: 20px 0" />
-              <div>
-                <h2
-                  style="
-                    font-size: 1.5rem;
-                    font-weight: 400;
-                    line-height: 2.3rem;
-                  "
-                >
-                  {{ pic.desc }}
-                </h2>
-                <br />
-                <v-btn
-                  depressed
-                  dark
-                  rounded
-                  style="background: #005588"
-                  :href="pic.link"
-                  >Visit Website</v-btn
-                >
-              </div>
-            </v-list-item-content>
-          </v-list-item>
-        </v-flex>
-      </v-layout>
+      <v-carousel
+        cycle
+        hide-delimiter-background
+        :show-arrows="false"
+        delimiter-icon="mdi-circle-medium"
+        next-icon="mdi-arrow-right-circle-outline"
+        prev-icon="mdi-arrow-left-circle-outline"
+        height="auto"
+      >
+        <v-carousel-item v-for="(project, i) in projects" :key="i">
+          <v-layout justify-center align-center>
+            <v-img :src="project.img" max-height="70%" max-width="70%" />
+          </v-layout>
+        </v-carousel-item>
+      </v-carousel>
     </v-container>
     <v-container fluid id="skill">
       <h1
@@ -201,24 +171,24 @@
 export default {
   name: "Home",
   data: () => ({
-    pics: [
+    projects: [
       {
         name: "Xenus",
-        src: "https://i.imgur.com/9JAHMFR.png",
+        img: "https://i.imgur.com/9JAHMFR.png",
         link: "https://github.com/ThatAnonymousG/Xenus",
         desc:
           "Xenus is a multi purpose discord bot which aims to the most configurable one out there. This is the dashboard and homepage of Xenus.",
       },
       {
         name: "Vortek Academy",
-        src: "https://imgur.com/scGbkhT.png",
+        img: "https://imgur.com/scGbkhT.png",
         link: "https://vortekacademy.com",
         desc:
           "VorteK Academy is a gaming community for like minded gamers. This website is the official homepage of VA where one can find all their info.",
       },
       {
         name: "LavaJS",
-        src: "https://i.imgur.com/Lomokqy.png",
+        img: "https://i.imgur.com/Lomokqy.png",
         link: "https://lavajs.tech",
         desc:
           "LavaJS is a open-source LavaLink wrapper focused on efficiency and easy of use. This is the documentation for LavaJS.",
@@ -248,6 +218,10 @@ export default {
       {
         name: "NodeJS",
         icon: "mdi-nodejs",
+      },
+      {
+        name: "Go",
+        icon: "mdi-language-go",
       },
     ],
   }),

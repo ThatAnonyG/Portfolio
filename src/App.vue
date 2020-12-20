@@ -1,5 +1,5 @@
 <template>
-  <v-app style="background: #f5e5fc; top: 0; left: 0">
+  <v-app style="background: #e5eafa; top: 0; left: 0">
     <div>
       <Nav style="z-index: 500; position: fixed; width: 100%" />
       <router-view />
