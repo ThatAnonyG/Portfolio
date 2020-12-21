@@ -1,10 +1,7 @@
 <template>
-  <v-container fluid class="text-center">
-    <v-container fluid id="intro" style="height: 100vh">
-      <h1
-        class="title-name"
-        style="margin-top: 23vh; font-size: 3.3rem; font-weight: 300"
-      >
+  <v-container fluid class="text-center" style="margin-top: 23vh">
+    <v-container fluid id="intro">
+      <h1 class="title-name" style="font-size: 3.3rem; font-weight: 300">
         Full Stack Web Developer
       </h1>
       <h2 style="letter-spacing: 0.167em; font-weight: 300">
@@ -27,7 +24,7 @@
         depressed
         style="margin: 6.5rem 6px 0 6px; background: #fac748"
       >
-        Read On
+        Gallery
         <v-icon style="margin-left: 4px"
           >mdi-chevron-down-circle-outline</v-icon
         >
@@ -41,128 +38,61 @@
         <v-icon style="margin-left: 4px">mdi-mail</v-icon>
       </v-btn>
     </v-container>
-    <v-container fluid id="gallery">
-      <h1
-        class="title-name"
-        style="margin: 1rem 0; font-size: 2.5rem; font-weight: 300"
-      >
+    <v-container fluid id="gallery" style="margin: 10rem 0">
+      <h1 class="title-name" style="font-size: 2.5rem; font-weight: 300">
         My Gallery
       </h1>
       <v-carousel
         cycle
         hide-delimiter-background
         :show-arrows="false"
+        height="auto"
         delimiter-icon="mdi-circle-medium"
         next-icon="mdi-arrow-right-circle-outline"
         prev-icon="mdi-arrow-left-circle-outline"
-        height="auto"
+        style="margin-top: 3rem"
       >
         <v-carousel-item v-for="(project, i) in projects" :key="i">
           <v-layout justify-center align-center>
-            <v-img :src="project.img" max-height="70%" max-width="70%" />
+            <div id="project--wrapper">
+              <v-img :src="project.img" />
+              <div id="project--name">
+                <h1
+                  style="
+                    font-weight: 300;
+                    font-size: 1.8rem;
+                    font-family: Raleway;
+                  "
+                >
+                  {{ project.name }}
+                </h1>
+              </div>
+              <div class="text-left" id="project--overlay">
+                <div
+                  style="
+                    font-family: Raleway;
+                    font-size: 1.2rem;
+                    width: 70%;
+                    margin: 3rem 0 0 3rem;
+                  "
+                >
+                  {{ project.desc }}
+                </div>
+                <v-btn depressed text style="margin: 2rem; color: #fac748"
+                  >Visit Project</v-btn
+                >
+                Tags:
+                <v-chip
+                  v-for="(tag, i) in project.tags"
+                  :key="i"
+                  style="background: #48b8d0; margin: 5px; color: black"
+                  >{{ tag }}</v-chip
+                >
+              </div>
+            </div>
           </v-layout>
         </v-carousel-item>
       </v-carousel>
-    </v-container>
-    <v-container fluid id="skill">
-      <h1
-        class="title-name"
-        style="margin: 1rem 0; font-size: 2.5rem; font-weight: 300"
-      >
-        Skill Set
-      </h1>
-      <v-layout wrap justify-center>
-        <v-card dark max-width="500" style="margin: 5px; background: #2c2f33">
-          <v-card-title class="justify-center">Languages</v-card-title>
-          <v-card-text>
-            <v-chip
-              light
-              color="#48b8d0"
-              style="margin: 5px"
-              v-for="x in skills"
-              :key="x.name"
-            >
-              <v-avatar left>
-                <v-icon>{{ x.icon }}</v-icon>
-              </v-avatar>
-              {{ x.name }}
-            </v-chip>
-          </v-card-text>
-        </v-card>
-      </v-layout>
-    </v-container>
-    <v-container fluid id="bio">
-      <h1
-        class="title-name"
-        style="margin: 1rem 0; font-size: 2.5rem; font-weight: 300"
-      >
-        About Me
-      </h1>
-      <v-layout wrap justify-center align-center>
-        <v-avatar size="15%"
-          ><v-img src="https://i.imgur.com/BHrS4DY.png"></v-img
-        ></v-avatar>
-        <v-card dark max-width="500" style="margin: 1rem; background: #2c2f33">
-          <div class="text-left" style="margin: 0.5rem 1rem">
-            <span class="overline">Hello, I'm</span>
-            <br />
-            <span style="font-size: 1.8rem; font-weight: 300; color: #48b8d0"
-              >Ratul Saha</span
-            >
-            <br />
-            <div style="font-size: 1.3rem; font-weight: 300; margin: 1rem 0">
-              I am a self-taught full-stack web developer with multiple years of
-              experience. I am 17 years old and I am from India. Till date I
-              have worked on more than 12 projects. Currently, I am looking for
-              internships to further develop my skill-set and build an arsenal
-              of knowledge!
-            </div>
-          </div>
-          <v-card-actions>
-            <v-spacer />
-            <v-btn href="#contact" text color="#48b8d0"> Contact Me </v-btn>
-            <v-btn href="/api/resume" text color="#48b8d0">
-              Download Resume
-            </v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-layout>
-      <div style="margin-top: 3rem" id="contact">
-        <v-list-item-title
-          style="margin: 1rem 0; font-size: 2.5rem; font-weight: 300"
-          >Contact Me</v-list-item-title
-        >
-        <v-btn
-          class="text-lowercase"
-          href="/api/mail"
-          target="_blank"
-          text
-          style="margin: 6px; font-size: 1rem"
-        >
-          <v-icon style="margin-right: 4px; color: #48b8d0">mdi-mail</v-icon>
-          me@thatanonymous.me
-        </v-btn>
-        <v-btn
-          class="text-capitalize"
-          href="https://twitter.com/ThatAnonyG"
-          target="_blank"
-          text
-          style="margin: 6px; font-size: 1rem"
-        >
-          <v-icon style="margin-right: 4px; color: #48b8d0">mdi-twitter</v-icon>
-          @ThatAnonyG
-        </v-btn>
-        <v-btn
-          class="text-capitalize"
-          href="https://dsc.bio/ThatAnonyG"
-          target="_blank"
-          text
-          style="margin: 6px; font-size: 1rem"
-        >
-          <v-icon style="margin-right: 4px; color: #48b8d0">mdi-discord</v-icon>
-          Anonymous Guy#8444
-        </v-btn>
-      </div>
     </v-container>
   </v-container>
 </template>
@@ -178,58 +108,79 @@ export default {
         link: "https://github.com/ThatAnonymousG/Xenus",
         desc:
           "Xenus is a chatbot developed for the Discord platform using their API. Discord is a chat service similar to Slack. It was first developed in Javascript and Typescript but the last revision uses Java.",
+        tags: ["Java", "Bot", "Discord", "JS/TS"],
       },
       {
         name: "Vortek Academy",
         img: "https://i.imgur.com/ePogrOk.png",
         link: "https://vortekacademy.com",
         desc:
-          "VorteK Academy is a gaming community for like minded gamers. This website is the official homepage of VA where one can find all their info.",
+          "VorteK Academy is an independent tournament organizer and gaming community working in partnership with other figureheads of the Asian Rocket League scene, aiming to spotlight the many talented players across the Asian subcontinent. Our aim and primary goal are to showcase the best of Rocket League.",
+        tags: ["Website", "Vuetify", "NodeJS", "Nginx"],
       },
       {
         name: "ActuallyMC",
         img: "https://i.imgur.com/bELvjNZ.png",
         link: "https://actuallymc.live",
-        desc: "",
+        desc:
+          "Actually MC is a community of Minecraft players where you can have fun, make friends, chill out or do anything that makes you happy. We are a BE server but every Minecraft player is welcome here. In AMC we want to make sure that the you are entertained and having fun, all while maintaining a friendly environment without toxicity or bullying. As a community we make sure that the user safety is always our top priority.",
+        tags: ["Website", "Vuetify", "Nginx"],
       },
       {
         name: "LavaJS",
         img: "https://i.imgur.com/Lomokqy.png",
         link: "https://lavajs.tech",
         desc:
-          "LavaJS is a open-source LavaLink wrapper focused on efficiency and easy of use. This is the documentation for LavaJS.",
-      },
-    ],
-    skills: [
-      {
-        name: "JavaScript",
-        icon: "mdi-language-javascript",
-      },
-      {
-        name: "Python",
-        icon: "mdi-language-python",
-      },
-      {
-        name: "Java",
-        icon: "mdi-language-java",
-      },
-      {
-        name: "HTML5 | CSS3",
-        icon: "mdi-web",
-      },
-      {
-        name: "TypeScript",
-        icon: "mdi-language-typescript",
-      },
-      {
-        name: "NodeJS",
-        icon: "mdi-nodejs",
-      },
-      {
-        name: "Go",
-        icon: "mdi-language-go",
+          "LavaJS is a open-source wrapper for the Lavalink API focused on efficiency and easy of use. Lavalink is a standalone audio sending node based on Lavaplayer (Discord audio library).",
+        tags: ["Website", "NodeJS", "Nginx", "NPM", "API"],
       },
     ],
   }),
 };
 </script>
+
+<style scoped>
+#project--wrapper {
+  height: 70%;
+  width: 70%;
+}
+
+#project--overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: inherit;
+  height: 100%;
+  display: none;
+  background: #000000;
+  opacity: 0.8;
+}
+
+#project--name {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+
+  width: inherit;
+  height: 30%;
+  display: none;
+
+  display: block;
+  background: linear-gradient(to top, black, transparent);
+}
+#project--name h1 {
+  bottom: 20%;
+  left: 5%;
+  position: absolute;
+}
+
+#project--wrapper:hover #project--overlay {
+  display: block;
+}
+#project--wrapper:hover #project--name {
+  display: none;
+}
+</style>

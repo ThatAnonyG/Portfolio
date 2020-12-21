@@ -23,6 +23,20 @@ export default {
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Orbitron&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;500&display=swap");
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: #e5eafa;
+}
+::-webkit-scrollbar-thumb {
+  background: #2c2f33;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 
 html {
   scroll-behavior: smooth;
